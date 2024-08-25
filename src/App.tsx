@@ -9,12 +9,13 @@ import { __DEV__, API_URL } from "./utils/constants";
 import FriendsPage from "./pages/Friends";
 import EarnPage from "./pages/Earn";
 import { usePlayerStore } from "./store/player";
+import { qr } from "./images";
 
 const App: React.FC = () => {
   const { setAuthToken } = useAuthStore();
   const { setPassiveEarnModal } = usePlayerStore();
   const [loading, setLoading] = useState(false);
-
+  console.log("WebApp", WebApp.platform);
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
@@ -24,13 +25,18 @@ const App: React.FC = () => {
   useEffect(() => {
     const telegramData = __DEV__
       ? {
-          id: 7168047621,
-          username: "getairdropme",
-          first_name: "GetAirdrop_Me",
+          id: 465670876,
+          username: "gunturkh",
+          first_name: "-",
           last_name: "-",
         }
-      : WebApp?.initDataUnsafe?.user;
-
+      : // ? {
+        //   id: 769049677,
+        //   username: "tatangdev",
+        //   first_name: "Tatang",
+        //   last_name: "",
+        // }
+        WebApp?.initDataUnsafe?.user;
     const playerLogin = async () => {
       try {
         setLoading(true);
@@ -50,24 +56,40 @@ const App: React.FC = () => {
           }),
         });
         const result = await response.json();
-        console.log("result");
+        // console.log("result");
         if (result.status) {
-          console.log("login result", result.data);
+          // setLoading(false);
+          // console.log("login result", result.data);
           setAuthToken(result?.data?.token);
           setPassiveEarnModal(true);
-        } else {
-          console.log("login error", result.message);
+        }
+        if (!result.status) {
+          // setLoading(false);
+          // console.log("login error", result.message);
         }
       } catch (error) {
-        console.log("login error", error);
-      } finally {
-        setLoading(false);
+        // setLoading(false);
+        // console.log("login error", error);
       }
     };
 
     playerLogin();
   }, [setAuthToken]);
 
+  if (
+    WebApp &&
+    (WebApp.platform === "macos" ||
+      //WebApp.platform === "tdesktop" ||
+      //WebApp.platform === "unigram" ||
+      //WebApp.platform === "weba" ||
+      //WebApp.platform === "webk" ||
+      //WebApp.platform === "unknown") &&
+    !__DEV__
+  ) {
+    return (
+      <img src={qr} alt="Loading" className="w-full h-screen object-cover " />
+    );
+  }
   if (loading) {
     return <LoadingScreen />;
   }
