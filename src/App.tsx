@@ -9,13 +9,12 @@ import { __DEV__, API_URL } from "./utils/constants";
 import FriendsPage from "./pages/Friends";
 import EarnPage from "./pages/Earn";
 import { usePlayerStore } from "./store/player";
-import { qr } from "./images";
 
 const App: React.FC = () => {
   const { setAuthToken } = useAuthStore();
   const { setPassiveEarnModal } = usePlayerStore();
   const [loading, setLoading] = useState(false);
-  console.log("WebApp", WebApp.platform);
+
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
@@ -30,13 +29,8 @@ const App: React.FC = () => {
           first_name: "GetAirdrop_Me",
           last_name: "-",
         }
-      : // ? {
-        //   id: 769049677,
-        //   username: "tatangdev",
-        //   first_name: "Tatang",
-        //   last_name: "",
-        // }
-        WebApp?.initDataUnsafe?.user;
+      : WebApp?.initDataUnsafe?.user;
+
     const playerLogin = async () => {
       try {
         setLoading(true);
@@ -58,25 +52,22 @@ const App: React.FC = () => {
         const result = await response.json();
         console.log("result");
         if (result.status) {
-           setLoading(true);
           console.log("login result", result.data);
           setAuthToken(result?.data?.token);
           setPassiveEarnModal(true);
-        }
-        if (!result.status) {
-         setLoading(false);
-        console.log("login error", result.message);
+        } else {
+          console.log("login error", result.message);
         }
       } catch (error) {
-     setLoading(false);
-     console.log("login error", error);
+        console.log("login error", error);
+      } finally {
+        setLoading(false);
       }
     };
 
     playerLogin();
   }, [setAuthToken]);
 
- 
   if (loading) {
     return <LoadingScreen />;
   }
