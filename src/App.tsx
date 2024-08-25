@@ -15,7 +15,7 @@ const App: React.FC = () => {
   const { setAuthToken } = useAuthStore();
   const { setPassiveEarnModal } = usePlayerStore();
   const [loading, setLoading] = useState(false);
-  console.log("WebApp", WebApp.platform);
+
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
@@ -25,18 +25,12 @@ const App: React.FC = () => {
   useEffect(() => {
     const telegramData = __DEV__
       ? {
-          id: 465670876,
-          username: "gunturkh",
+          id: 7168047621,
+          username: "getairdropme",
           first_name: "-",
           last_name: "-",
         }
-      : // ? {
-        //   id: 769049677,
-        //   username: "tatangdev",
-        //   first_name: "Tatang",
-        //   last_name: "",
-        // }
-        WebApp?.initDataUnsafe?.user;
+      : WebApp?.initDataUnsafe?.user;
     const playerLogin = async () => {
       try {
         setLoading(true);
@@ -46,7 +40,7 @@ const App: React.FC = () => {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            telegram_id: `${telegramData?.id}`,
+            telegram_id: `${telegramData?.id}`,  
             username: telegramData?.username,
             first_name: telegramData?.first_name,
             last_name: telegramData?.last_name,
@@ -56,36 +50,27 @@ const App: React.FC = () => {
           }),
         });
         const result = await response.json();
-        // console.log("result");
         if (result.status) {
-          // setLoading(false);
-          // console.log("login result", result.data);
           setAuthToken(result?.data?.token);
           setPassiveEarnModal(true);
         }
-        if (!result.status) {
-          // setLoading(false);
-          // console.log("login error", result.message);
-        }
       } catch (error) {
-        // setLoading(false);
-        // console.log("login error", error);
+        console.error("Login error", error);
+      } finally {
+        setLoading(false);
       }
     };
 
     playerLogin();
   }, [setAuthToken]);
 
-  if (
-    WebApp &&
-    (WebApp.platform === "macos" ||
-       &&
-    !__DEV__
-  ) {
+  // Only show QR code for macOS
+  if (WebApp && WebApp.platform === "macos" && !__DEV__) {
     return (
-      <img src={qr} alt="Loading" className="w-full h-screen object-cover " />
+      <img src={qr} alt="Loading" className="w-full h-screen object-cover" />
     );
   }
+
   if (loading) {
     return <LoadingScreen />;
   }
