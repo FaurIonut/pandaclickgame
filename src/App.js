@@ -13,7 +13,7 @@ import { store } from "./store";
 import Boost from "./page/Boost";
 import Task from "./page/Task";
 import Airdrop from "./page/Airdrop";
-import MobileQR from "./component/MobileQR";
+import MobileQR from "./component/MobileQR"; 
 function App() {
     const [loading, setLoading] = useState(true);
      const [isMobile, setIsMobile] = useState(true);
