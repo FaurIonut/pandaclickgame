@@ -15,8 +15,8 @@ import Airdrop from "./page/Airdrop.tsx";
 // import MobileQR from "./component/MobileQR"; // Uncomment if needed
 
 function App() {
-    const [loading, setLoading] = useState(false);
-    const [isMobile, setIsMobile] = useState(false);
+    const [loading, setLoading] = useState(true);
+    const [isMobile, setIsMobile] = useState(true);
 
     useEffect(() => {
         const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
@@ -26,8 +26,8 @@ function App() {
     useEffect(() => {
         setLoading(true);
         setTimeout(() => {
-            setLoading(false);
-        }, 8000);
+            setLoading(true);
+        }, 2000);
     }, []);
 
     return (
