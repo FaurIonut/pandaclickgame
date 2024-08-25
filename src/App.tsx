@@ -13,28 +13,22 @@ import Boost from "./page/Boost";
 import Task from "./page/Task";
 import Airdrop from "./page/Airdrop";
 // import MobileQR from "./component/MobileQR";
+
 function App() {
-  const [loading, setLoading] = useState(false);
-  // const [isMobile, setIsMobile] = useState(false);
-  // useEffect(() => {
-  //   const isMobile =
-  //     /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-  //       navigator.userAgent
-  //     );
-  //   setIsMobile(isMobile);
-  // }, []);
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
-    setLoading(true);
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       setLoading(false);
-    }, 1000);
+    }, 1000); // Set loading to false after 1 second
+
+    return () => clearTimeout(timer); // Clean up the timer if the component unmounts
   }, []);
+
   return (
     <Router>
-      {/*!isMobile ? (
-        <MobileQR />
-      ) : */loading ? (
-        <Loading />
+      {loading ? (
+        <Loading /> // Show loading screen for 1 second
       ) : (
         <div className="App h-screen">
           <ReduxProvider store={store}>
