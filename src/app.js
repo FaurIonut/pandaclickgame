@@ -15,9 +15,9 @@ function setImage() {
     if (getScore() >= 100) {
         $circle.setAttribute('src', './assets/lizzard.png');
     }
-    // if (getScore() >= 1500) {
-    //     $circle.setAttribute('src', './assets/image.png');
-    // }
+    / if (getScore() >= 1) {
+         $circle.setAttribute('src', './assets/image.png');
+     }
 }
 
 function getScore() {
