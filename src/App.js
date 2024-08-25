@@ -1,4 +1,3 @@
-import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./App.css";
 import { useState, useEffect } from "react";
@@ -13,25 +12,47 @@ import { store } from "./store";
 import Boost from "./page/Boost";
 import Task from "./page/Task";
 import Airdrop from "./page/Airdrop";
-// import MobileQR from "./component/MobileQR";
+// import MobileQR from "./component/MobileQR"; // Uncomment if needed
+
 function App() {
     const [loading, setLoading] = useState(false);
-    // const [isMobile, setIsMobile] = useState(false);
-    // useEffect(() => {
-    //   const isMobile =
-    //     /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-    //       navigator.userAgent
-    //     );
-    //   setIsMobile(isMobile);
-    // }, []);
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        setIsMobile(isMobile);
+    }, []);
+
     useEffect(() => {
         setLoading(true);
         setTimeout(() => {
             setLoading(false);
         }, 8000);
     }, []);
-    return (_jsx(Router, { children: /*!isMobile ? (
-          <MobileQR />
-        ) : */ loading ? (_jsx(Loading, {})) : (_jsx("div", { className: "App h-screen", children: _jsxs(ReduxProvider, { store: store, children: [_jsx(Routes, { children: _jsxs(Route, { path: "/", element: _jsx(Layout, {}), children: [_jsx(Route, { index: true, element: _jsx(Home, {}) }), _jsx(Route, { path: "ranking", element: _jsx(Ranking, {}) }), _jsx(Route, { path: "quest", element: _jsx(Quest, {}) }), _jsx(Route, { path: "boost", element: _jsx(Boost, {}) }), _jsx(Route, { path: "task", element: _jsx(Task, {}) }), _jsx(Route, { path: "airdrop", element: _jsx(Airdrop, {}) })] }) }), _jsx(ToastContainer, {})] }) })) }));
+
+    return (
+        <Router>
+            {loading ? (
+                <Loading />
+            ) : (
+                <div className="App h-screen">
+                    <ReduxProvider store={store}>
+                        <Routes>
+                            <Route path="/" element={<Layout />}>
+                                <Route index element={<Home />} />
+                                <Route path="ranking" element={<Ranking />} />
+                                <Route path="quest" element={<Quest />} />
+                                <Route path="boost" element={<Boost />} />
+                                <Route path="task" element={<Task />} />
+                                <Route path="airdrop" element={<Airdrop />} />
+                            </Route>
+                        </Routes>
+                        <ToastContainer />
+                    </ReduxProvider>
+                </div>
+            )}
+        </Router>
+    );
 }
+
 export default App;
