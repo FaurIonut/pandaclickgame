@@ -13,15 +13,15 @@ import Rankings from "./Components/Rankings";
 const App = () => {
 	return (
 		<>
-			{/* <Home /> */}
-			{/* <BottleCap /> */}
-			{/* <Hammer /> */}
-			{/* <MemeFi /> */}
+			{ <Home /> }
+			{ <BottleCap /> }
+			{ <Hammer /> }
+			{ <MemeFi /> }
 			{/* <Popup1 /> */}
 			{/* <Popup2 /> */}
 			{/* <Popup3 /> */}
 			{/* <Popup4 /> */}
-			{/* <InviteFriends /> */}
+			{ <InviteFriends /> }
 			<Rankings />
 		</>
 	);
