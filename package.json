@@ -8,10 +8,10 @@
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "start": "vite"  // This will start your app in Glitch
+    "start": "vite"
   },
   "engines": {
-    "node": "18.x"  // Specifies Node.js version for Glitch
+    "node": "16.14.2"
   },
   "dependencies": {
     "@pixi/react": "^7.1.2",
