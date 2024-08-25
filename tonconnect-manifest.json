@@ -1,7 +1,0 @@
-{
-    "url": "https://pandaclickgame.vercel.app",        // Replace with your app's URL
-    "name": "PandaClickGame",                  // Replace with your app's name
-    "iconUrl": "https://i.ibb.co/9pTDmPg/panda-1797230.png", // Replace with your app's icon URL
-    "termsOfUseUrl": "https://pandaclickgame.vercel.app/terms", // Optional
-    "privacyPolicyUrl": "https://pandaclickgame.vercel.app/privacy" // Optional
-}
