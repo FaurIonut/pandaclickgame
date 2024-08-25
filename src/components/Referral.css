@@ -1,0 +1,126 @@
+.referral-dashboard {
+  padding: 20px;
+  color: #ffffff;
+  font-family: "Play", cursive;
+  border-radius: 10px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.referral-dashboard h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+.referral-dashboard .referral-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.referral-dashboard .referral-list .referral {
+  padding: 10px;
+  background-color: #6d6d6d;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.referral-dashboard .referral-list .referral .referral-name {
+  font-size: 16px;
+}
+.referral-dashboard .referral-list .referral .referral-coins {
+  font-size: 16px;
+  color: #ffcc00;
+}
+.referral-dashboard .referral-button {
+  padding: 10px 20px;
+  background-color: rgb(0, 149, 255);
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+.referral-dashboard .referral-button:hover {
+  background-color: #444466;
+}
+
+.copy {
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+  display: block;
+  text-align: center;
+}
+.copy:hover {
+  background-color: #444466;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.no-referrals {
+  display: grid;
+  place-items: center;
+}
+
+.dflex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dflex-around {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.referral-info {
+  display: flex;
+  justify-content: end;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 5px;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.774);
+  border-radius: 10px;
+  height: max-content;
+}
+.referral-info p {
+  margin: 0;
+}
+
+.main-info {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+  align-items: center;
+  border: solid 1px #6d6d6d;
+  border: solid 1px #6d6d6d;
+  color: rgba(255, 255, 255, 0.774);
+  border-radius: 10px;
+}
+.main-info height:max-content p {
+  margin: 0;
+}
+
+.refer-info {
+  color: whitesmoke;
+}
+
+.dflex-start {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: column-reverse;
+}/*# sourceMappingURL=Referral.css.map */

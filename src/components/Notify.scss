@@ -1,0 +1,32 @@
+.message-box{
+    position: fixed;
+    width: 100%;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    top:0;
+    .message{
+        padding: 5px;
+        border: solid 1px #f44336;
+        margin:10px;
+        display: flex;
+        justify-content: center;
+        border-radius: 10px;
+        color: white;
+        font-size: 1rem;
+        font-weight: 400;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        background-color: rgba(0, 0, 0, 0.298);
+
+    }
+    animation: slideDown 0.5s ease;
+}
+@keyframes slideDown {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+    
+}
