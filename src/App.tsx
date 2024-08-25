@@ -1,13 +1,10 @@
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Home from "./page/Home";
+import React from 'react';
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home />} /> {/* Directly render Home */}
-      </Routes>
-    </Router>
+    <div>
+      <h1>Hello, World!</h1>
+    </div>
   );
 }
 
