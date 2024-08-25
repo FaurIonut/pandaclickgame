@@ -14,14 +14,14 @@ const App = () => {
 	return (
 		<>
 			{ <Home /> }
-			{ <BottleCap /> }
-			{ <Hammer /> }
-			{ <MemeFi /> }
+			{ /*<BottleCap /> */}
+			{ /*<Hammer /> */}
+			{ /*<MemeFi /> */}
 			{/* <Popup1 /> */}
 			{/* <Popup2 /> */}
 			{/* <Popup3 /> */}
 			{/* <Popup4 /> */}
-			{ <InviteFriends /> }
+			{ <InviteFriends /> */}
 			<Rankings />
 		</>
 	);
