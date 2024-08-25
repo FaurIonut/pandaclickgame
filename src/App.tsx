@@ -4,11 +4,8 @@ import { useState, useEffect } from "react";
 import { ToastContainer } from "react-toastify";
 import { Provider as ReduxProvider } from "react-redux";
 import { store } from "./store";
+import Home from "./page/Home";  // Import Home Component
 
-// Basic Components for Testing
-function Home() {
-  return <h1>Home Page</h1>;
-}
 function Layout() {
   return <div><h1>Layout Component</h1></div>;
 }
@@ -27,13 +24,13 @@ function App() {
   return (
     <Router>
       {loading ? (
-        <div>Loading...</div> // Simple Loading Message for Debugging
+        <div>Loading...</div> // Simple Loading Message
       ) : (
         <div className="App h-screen">
           <ReduxProvider store={store}>
             <Routes>
               <Route path="/" element={<Layout />}>
-                <Route index element={<Home />} /> {/* Test the Home Route */}
+                <Route index element={<Home />} /> {/* Test the Home Component */}
               </Route>
             </Routes>
             <ToastContainer />
