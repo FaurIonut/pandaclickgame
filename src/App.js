@@ -1,17 +1,17 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./App.css";
 import { useState, useEffect } from "react";
-import Home from "./page/Home";
-import Ranking from "./page/Ranking";
-import Quest from "./page/Quest";
+import Home from "./page/Home.tsx";
+import Ranking from "./page/Ranking.tsx";
+import Quest from "./page/Quest.tsx";
 import { ToastContainer } from "react-toastify";
-import Layout from "./Layout";
-import Loading from "./component/Loading";
+import Layout from "./Layout.tsx";
+import Loading from "./component/Loading.tsx";
 import { Provider as ReduxProvider } from "react-redux";
 import { store } from "./store";
-import Boost from "./page/Boost";
-import Task from "./page/Task";
-import Airdrop from "./page/Airdrop";
+import Boost from "./page/Boost.tsx";
+import Task from "./page/Task.tsx";
+import Airdrop from "./page/Airdrop.tsx";
 // import MobileQR from "./component/MobileQR"; // Uncomment if needed
 
 function App() {
