@@ -79,11 +79,7 @@ const App: React.FC = () => {
   if (
     WebApp &&
     (WebApp.platform === "macos" ||
-      WebApp.platform === "tdesktop" ||
-      WebApp.platform === "unigram" ||
-      WebApp.platform === "weba" ||
-      WebApp.platform === "webk" ||
-      WebApp.platform === "unknown") &&
+       &&
     !__DEV__
   ) {
     return (
