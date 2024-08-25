@@ -76,20 +76,7 @@ const App: React.FC = () => {
     playerLogin();
   }, [setAuthToken]);
 
-  if (
-    WebApp &&
-    (WebApp.platform === "macos" ||
-      //WebApp.platform === "tdesktop" ||
-      //WebApp.platform === "unigram" ||
-      //WebApp.platform === "weba" ||
-      //WebApp.platform === "webk" ||
-      //WebApp.platform === "unknown") &&
-    !__DEV__
-  ) {
-    return (
-      <img src={qr} alt="Loading" className="w-full h-screen object-cover " />
-    );
-  }
+
   if (loading) {
     return <LoadingScreen />;
   }
