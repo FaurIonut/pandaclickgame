@@ -25,12 +25,13 @@ const App: React.FC = () => {
   useEffect(() => {
     const telegramData = __DEV__
       ? {
-          id: 7168047621,
-          username: "getairdropme",
+          id: 465670876,
+          username: "gunturkh",
           first_name: "-",
           last_name: "-",
         }
       : WebApp?.initDataUnsafe?.user;
+
     const playerLogin = async () => {
       try {
         setLoading(true);
@@ -40,7 +41,7 @@ const App: React.FC = () => {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            telegram_id: `${telegramData?.id}`,  
+            telegram_id: `${telegramData?.id}`,
             username: telegramData?.username,
             first_name: telegramData?.first_name,
             last_name: telegramData?.last_name,
