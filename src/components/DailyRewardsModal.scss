@@ -1,0 +1,49 @@
+$background-color: #000000;
+$primary-color: #ffcc00;
+$secondary-color: #ff6600;
+$text-color: #ffffff;
+$button-bg-color: #252525;
+$button-bg-hover-color: #444466;
+$button-text-color: #ffffff;
+$button-disabled-bg-color: #6d6d6d;
+$button-disabled-text-color: #c8c8c8;
+$font-family: 'Play', cursive;
+$border-radius: 10px;
+
+.modal-overlay {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background: rgba(20, 7, 7, 0.236);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: all 3s ease-in-out;
+  }
+  .modal-content {
+    background: $background-color;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .close-button {
+    align-self: flex-end;
+    background: transparent;
+    color: $secondary-color;
+    font-weight: 800;
+  }
+
+  .daily-rewards .reward:last-child {
+    border-bottom: none;
+  }
+.daily-rewards{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.collected{
+  background: rgba(1, 89, 1, 0.644);
+}
